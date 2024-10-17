@@ -501,6 +501,7 @@ testSet=[[99.964,'College of Engineering, Pune'],[99.164,'College of Engineering
 predictions=['College of Engineering, Pune','Pune Institute of Computer Technology, Dhankavdi, Pune','Pune Institute of Computer Technology, Dhankavdi, Pune','Walchand College of Engineering, Sangli']
 accuracy=c.getAccuracy(testSet,predictions)
 print("--------------------Accuracy--------")
+
 print("Accuracy of knn is {}".format(accuracy))
 
 
