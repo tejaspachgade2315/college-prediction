@@ -10,5 +10,6 @@
       "src": "/(.*)",
       "dest": "server.py"
     }
-  ]
+  ],
+  "ignore": ["__pycache__/"]
 }
