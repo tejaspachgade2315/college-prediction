@@ -3,6 +3,7 @@ from CollegeAllotment import algorithms
 from CollegeAllotment import college_links
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -12,6 +13,7 @@ def index():
 def about():
     return render_template('about.html')
 
+
 @app.route('/exam')
 def exam():
     return render_template('exam.html')
@@ -20,6 +22,7 @@ def exam():
 @app.route('/predictCollege')
 def predictCollege():
     return render_template("predictCollege.html")
+
 
 @app.route('/results', methods=['GET', 'POST'])
 @app.route('/results', methods=['GET', 'POST'])
@@ -35,17 +38,17 @@ def results():
             return render_template("results.html", colleges=[college_info])
         elif algorithm == "SVM":
             college = c.predictSVM(marks, caste)
-            college_info = {"name": college, "cutoff": "NA", "url": college_links.get(college, 'Website not found')}
+            college_info = {"name": college, "cutoff": "NA",
+                            "url": college_links.get(college, 'Website not found')}
             return render_template("results.html", colleges=[college_info])
 
     return render_template("results.html", colleges=None)
 
 
-
-
 @app.route('/colleges')
 def colleges():
     return render_template("colleges.html")
+
 
 @app.route('/sortedResults')
 def sortedResults():
@@ -57,8 +60,8 @@ def sortedResults():
     my_list = c.get_by_range(start, end, results, caste)
     # return render_template("sortedResults.html", my_list=my_list, size=len(my_list))
     return render_template("sortedResults.html", my_list=my_list, size=len(my_list), college_links=college_links)
+
+
 if __name__ == '__main__':
-    app.debug = True
+    # app.debug = True
     app.run()
-
-
